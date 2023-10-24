@@ -13,5 +13,9 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activitySettingsBinding.root)
+
+        setSupportActionBar(activitySettingsBinding.gameTbIn.gameTb)
+        supportActionBar?.title = getString(R.string.app_name)
+        supportActionBar?.subtitle = getString(R.string.settings)
     }
 }
