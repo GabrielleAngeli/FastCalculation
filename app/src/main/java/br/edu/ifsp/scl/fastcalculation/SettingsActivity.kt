@@ -1,9 +1,11 @@
 package br.edu.ifsp.scl.fastcalculation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.TextView
+import br.edu.ifsp.scl.fastcalculation.Extras.EXTRA_SETTINGS
 import br.edu.ifsp.scl.fastcalculation.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {
@@ -30,7 +32,10 @@ class SettingsActivity : AppCompatActivity() {
                     }
                 )
 
-                val gameActivityIntent = intent()
+                val gameActivityIntent = Intent(this@SettingsActivity, GameActivity::class.java)
+                gameActivityIntent.putExtra(EXTRA_SETTINGS, settings )
+                startActivity(gameActivityIntent)
+                finish() //Finalização do ciclo de vida não vamos conseguir voltar para esta tela
             }
         }
 
