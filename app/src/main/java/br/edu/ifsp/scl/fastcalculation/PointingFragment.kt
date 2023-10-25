@@ -3,6 +3,7 @@ package br.edu.ifsp.scl.fastcalculation
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import br.edu.ifsp.scl.fastcalculation.Extras.EXTRA_SCORE
@@ -21,6 +22,8 @@ class PointingFragment : Fragment() {
             score = it.getString(EXTRA_SCORE).toString()
 
         }
+        setHasOptionsMenu(true)
+
     }
 
     override fun onCreateView(
@@ -47,5 +50,10 @@ class PointingFragment : Fragment() {
                     putString(EXTRA_SCORE, score)
                 }
             }
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.findItem(R.id.restartGameMi).isVisible = false
     }
 }
