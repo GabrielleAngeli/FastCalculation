@@ -7,7 +7,7 @@ import android.view.MenuItem
 import br.edu.ifsp.scl.fastcalculation.Extras.EXTRA_SETTINGS
 import br.edu.ifsp.scl.fastcalculation.databinding.ActivityGameBinding
 
-class GameActivity : AppCompatActivity(), OnPLayGame {
+class GameActivity : AppCompatActivity(), OnPLayGame, GoToEndGame {
 
     private val activityGameBinding: ActivityGameBinding by lazy {
         ActivityGameBinding.inflate(layoutInflater)
@@ -56,5 +56,10 @@ class GameActivity : AppCompatActivity(), OnPLayGame {
     override fun onPlayGame() {
         supportFragmentManager.beginTransaction().replace(R.id.gameFl, GameFragment.newInstance(settings)).commit()
     }
+
+    override fun goToEndGame(score: String) {
+        supportFragmentManager.beginTransaction().replace(R.id.gameFl, PointingFragment.newInstance(score)).commit()
+    }
+
 
 }

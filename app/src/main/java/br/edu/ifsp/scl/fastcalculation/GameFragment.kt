@@ -104,9 +104,8 @@ class GameFragment : Fragment() {
             with(fragmentGameBinding){
                 roundTv.text = getString(R.string.points)
                 val points = hits * 10F / (totalGameTime / 1000L)
-                "%.1f".format(points).also{
-                    questionTv.text = it
-                }
+
+                (context as GoToEndGame).goToEndGame(score = "%.1f".format(points))
                 alternativeOndeBt.visibility = View.GONE
                 alternativeTwoBt.visibility = View.GONE
                 alternativeThreeBt.visibility = View.GONE
