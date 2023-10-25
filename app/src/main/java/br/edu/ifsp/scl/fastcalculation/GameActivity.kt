@@ -39,7 +39,10 @@ class GameActivity : AppCompatActivity(), OnPLayGame {
     //Para tratar clicks
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            R.id.restartGameMi -> { true }
+            R.id.restartGameMi -> {
+                onPlayGame()
+                true
+            }
 
             R.id.exitMi -> {
                 finish()
