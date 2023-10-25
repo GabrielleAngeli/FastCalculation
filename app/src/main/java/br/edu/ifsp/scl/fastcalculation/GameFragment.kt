@@ -106,9 +106,6 @@ class GameFragment : Fragment() {
                 val points = hits * 10F / (totalGameTime / 1000L)
 
                 (context as GoToEndGame).goToEndGame(score = "%.1f".format(points))
-                alternativeOndeBt.visibility = View.GONE
-                alternativeTwoBt.visibility = View.GONE
-                alternativeThreeBt.visibility = View.GONE
             }
         }
     }
