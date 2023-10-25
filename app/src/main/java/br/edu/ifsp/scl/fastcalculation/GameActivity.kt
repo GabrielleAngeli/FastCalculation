@@ -4,11 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import br.edu.ifsp.scl.fastcalculation.Extras.EXTRA_SETTINGS
 import br.edu.ifsp.scl.fastcalculation.databinding.ActivityGameBinding
 
-class GameActivity : AppCompatActivity() {
+class GameActivity : AppCompatActivity(), OnPLayGame {
 
     private val activityGameBinding: ActivityGameBinding by lazy {
         ActivityGameBinding.inflate(layoutInflater)
@@ -49,6 +48,10 @@ class GameActivity : AppCompatActivity() {
 
             else -> { false}
         }
+    }
+
+    override fun onPlayGame() {
+        supportFragmentManager.beginTransaction().replace(R.id.gameFl, GameFragment.newInstance(settings)).commit()
     }
 
 }

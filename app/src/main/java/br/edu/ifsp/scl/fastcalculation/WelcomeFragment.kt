@@ -33,6 +33,10 @@ class WelcomeFragment : Fragment() {
         "${getString(R.string.welcome)}, ${settings.playerName}!".also{
             fragmentWelcomeBinding.welcomeTv.text = it
         }
+
+        fragmentWelcomeBinding.playBt.setOnClickListener {
+            (context as OnPLayGame).onPlayGame() //Polimorfismo
+        }
         return fragmentWelcomeBinding.root
     }
 
