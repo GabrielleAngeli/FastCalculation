@@ -26,8 +26,10 @@ class GameActivity : AppCompatActivity() {
         }
 
         settings = intent.getParcelableExtra(EXTRA_SETTINGS) ?: Settings()
-        Toast.makeText(this, settings.toString(), Toast.LENGTH_SHORT).show()
 
+        /*Precisamos criar uma transação de fragment para chamar o fragment aqui atraves do fragmentManager */
+
+        supportFragmentManager.beginTransaction().replace(R.id.gameFl, WelcomeFragment.newInstance(settings)).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean { //para exibir o menu
